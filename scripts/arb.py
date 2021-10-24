@@ -49,7 +49,7 @@ def check_ube(price, prev_balance, path, account, router):
         total_return = marginal_return
         while True:
             marginal_return = (router.getAmountsOut(amount + 10**18, path)[-1] / 10**18) - total_return
-            if (marginal_return > PRICE):
+            if (marginal_return > 1):
                 if (amount > prev_balance): break
                 amount += 10 ** 18
                 total_return += marginal_return
@@ -70,7 +70,7 @@ def check_mobi(price, prev_balance, from_index, to_index, account, swap):
         total_return = marginal_return
         while True:
             marginal_return = (swap.calculateSwap(from_index, to_index, amount + 10**18) / 10**18) - total_return
-            if (marginal_return > PRICE):
+            if (marginal_return > 1):
                 if (amount > prev_balance): break
                 amount += 10 ** 18
                 total_return += marginal_return
